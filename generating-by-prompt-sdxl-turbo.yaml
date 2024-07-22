@@ -1,0 +1,15 @@
+name: generating-by-prompt-sdxl-turbo
+
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+  - pytorch
+  - diffusers
+  - accelerate
+  - transformers
+  - pillow
+  - gradio
