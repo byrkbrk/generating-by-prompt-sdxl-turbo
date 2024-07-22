@@ -14,9 +14,12 @@ class StableDiffusion(object):
         self.pipeline = self.instantiate_pipeline(model_id, self.device)
         self.create_dirs(self.module_dir)
 
-    def generate(self, prompt, num_inference_steps=5, show=True, save=True):
+    def generate(self, prompt, num_inference_steps=5, show=True, save=True, height=512, width=512):
         """Returns generated image for given prompt"""
-        images = self.pipeline(prompt, num_inference_steps=num_inference_steps).images
+        images = self.pipeline(prompt, 
+                               num_inference_steps=num_inference_steps,
+                               height=height,
+                               width=width).images
         for i, image in enumerate(images):
             if save:
                 image.save(os.path.join(self.module_dir, "generated-images", f"generated_image_{i}.png"))
