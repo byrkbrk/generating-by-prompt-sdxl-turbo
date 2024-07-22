@@ -5,7 +5,7 @@ from stable_diffusion_xl_turbo import StableDiffusion
 
 def parse_arguments():
     """Returns parsed arguments"""
-    parser = ArgumentParser(description="Generate by prompt using SDXL-turbo")
+    parser = ArgumentParser(description="Generate images by prompts using SDXL-turbo")
     parser.add_argument("prompt", nargs="+", type=str, help="Text prompts that be used for generating")
     parser.add_argument("--num_inference_steps", type=int, default=5, 
                         help="Number of inferences steps that be used during inference. Default: 5")
