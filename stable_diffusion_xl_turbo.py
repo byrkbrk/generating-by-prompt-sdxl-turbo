@@ -11,9 +11,10 @@ class StableDiffusion(object):
                  ):
         self.module_dir = os.path.dirname(__file__)
         self.device = self.initialize_device(device)
-        self.pipeline = self.instantiate_pipeline(model_id)
+        self.pipeline = self.instantiate_pipeline(model_id, self.device)
+        self.create_dirs(self.module_dir)
 
-    def generate(self, prompt, num_inference_steps=50, show=True, save=True):
+    def generate(self, prompt, num_inference_steps=5, show=True, save=True):
         """Returns generated image for given prompt"""
         images = self.pipeline(prompt, num_inference_steps=num_inference_steps).images
         for i, image in enumerate(images):
@@ -23,11 +24,13 @@ class StableDiffusion(object):
                 image.show()
         return images
 
-    def instantiate_pipeline(self, model_id):
+    def instantiate_pipeline(self, model_id, device):
         """Returns instantiated pipeline"""
         pipeline = DiffusionPipeline.from_pretrained(
             model_id,
-            ).to(self.device)
+            torch_dtype=torch.float16,
+            variant="fp16",
+            ).to(device)
         return pipeline
     
     def initialize_device(self, device):
@@ -45,11 +48,13 @@ class StableDiffusion(object):
         """Creates required directories for inference"""
         dir_names = ["generated-images"]
         for dir_name in dir_names:
-            os.makedirs(dir_name)
+            os.makedirs(os.path.join(root, dir_name), exist_ok=True)
 
 
 
 if __name__ == "__main__":
     stable_diffusion = StableDiffusion()
+    prompt = ["an image of a turtle in Camille Pissarro style", "an image of a turtle in Picasso style"]
+    stable_diffusion.generate(prompt, num_inference_steps=15)
 
 
