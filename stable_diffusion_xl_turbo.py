@@ -1,6 +1,6 @@
 import os
 import torch
-from diffusers import DiffusionPipeline
+from diffusers import DiffusionPipeline, EulerAncestralDiscreteScheduler
 
 
 
@@ -27,13 +27,20 @@ class StableDiffusion(object):
                 image.show()
         return images
 
-    def instantiate_pipeline(self, model_id, device):
+    def instantiate_pipeline(self, 
+                             model_id, 
+                             device, 
+                             scheduler_name="euler_ancestral_discrete_scheduler"):
         """Returns instantiated pipeline"""
         pipeline = DiffusionPipeline.from_pretrained(
             model_id,
             torch_dtype=torch.float16,
             variant="fp16",
             ).to(device)
+        if scheduler_name == "euler_ancestral_discrete_scheduler":
+            pipeline.scheduler = EulerAncestralDiscreteScheduler.from_config(
+                pipeline.scheduler.config,
+                timestep_spacing="trailing")
         return pipeline
     
     def initialize_device(self, device):
