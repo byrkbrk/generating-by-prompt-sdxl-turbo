@@ -84,5 +84,21 @@ The output images seen below (left: Picasso style, right: Pissarro style) will b
   <img src="files-for-readme/pissarro_turtle.png" width="49%" />
 </p>
 
+## Generating Images by Gradio
+
+To run the gradio app on your local computer, execute:
+
+~~~
+python3 app.py
+~~~
+Then, visit the url [http://127.0.0.1:7860](http://127.0.0.1:7860) to open the interface.
+
+### Example usage
+
+See the display below for an example usage of the module via Gradio for the prompt `'a picture of a lion in Claude Monet style'` with `inference steps` of 5.
+
+<p align="left">
+  <img src="files-for-readme/generate_by_prompt_sdxl_turbo_ss.png" width="100%" />
+</p>
 
 
