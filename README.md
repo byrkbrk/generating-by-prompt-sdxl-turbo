@@ -29,7 +29,15 @@ We implement a module that generates images based on user-defined (text) prompts
 ### Using Pip 
 
 1. Download & install [Python](https://www.python.org/downloads/) (version==3.11)
-2. Install packages using `pip`:
+2. Clone the repository:
+    ~~~
+    git clone https://github.com/byrkbrk/generating-by-prompt-sdxl-turbo.git
+    ~~~
+3. Change the directory:
+    ~~~
+    cd generating-by-prompt-sdxl-turbo
+    ~~~
+4. Install packages using `pip`:
     ~~~
     pip install -r requirements.txt
     ~~~
