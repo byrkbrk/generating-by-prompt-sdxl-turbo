@@ -44,6 +44,30 @@ We implement a module that generates images based on user-defined (text) prompts
 
 ## Generating Images
 
+Check it out how to use:
+
+~~~
+python3 generate.py -h
+~~~
+
+Output:
+
+~~~
+Generate images by prompts using SDXL-turbo
+
+positional arguments:
+  prompt                Text prompts that be used for generating
+
+options:
+  -h, --help            show this help message and exit
+  --num_inference_steps NUM_INFERENCE_STEPS
+                        Number of inferences steps that be used during
+                        inference. Default: 5
+  --device DEVICE       Device name used for inferece. Default: None
+  --height HEIGHT       Height of the generated image. Default: 512
+  --width WIDTH         Width of the generated image. Default: 512
+~~~
+
 ### Example usage
 
 ~~~
