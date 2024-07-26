@@ -28,6 +28,12 @@ We implement a module that generates images based on user-defined (text) prompts
 
 ### Using Pip 
 
+1. Download & install [Python](https://www.python.org/downloads/) (version==3.11)
+2. Install packages using `pip`:
+    ~~~
+    pip install -r requirements.txt
+    ~~~
+
 ## Generating Images
 
 ### Example usage
