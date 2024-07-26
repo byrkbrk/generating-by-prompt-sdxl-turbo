@@ -6,13 +6,14 @@ from diffusers import DiffusionPipeline, EulerAncestralDiscreteScheduler
 
 class StableDiffusion(object):
     def __init__(self, 
-                 model_id="stabilityai/sdxl-turbo",
-                 device="mps",
+                 model_id: str="stabilityai/sdxl-turbo",
+                 device: str="mps",
+                 create_dirs: bool=True
                  ):
         self.module_dir = os.path.dirname(__file__)
         self.device = self.initialize_device(device)
         self.pipeline = self.instantiate_pipeline(model_id, self.device)
-        self.create_dirs(self.module_dir)
+        if create_dirs: self.create_dirs(self.module_dir)
 
     def generate(self, prompt, num_inference_steps=5, show=True, save=True, height=512, width=512):
         """Returns generated image for given prompt"""
