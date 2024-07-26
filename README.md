@@ -6,6 +6,27 @@ We implement a module that generates images based on user-defined (text) prompts
 
 ## Setting Up the Environment
 
+### Using Conda (recommended)
+
+1. Install [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html), if not already installed.
+2. Clone the repository:
+    ~~~
+    git clone https://github.com/byrkbrk/generating-by-prompt-sdxl-turbo.git
+    ~~~
+3. Change the directory:
+    ~~~
+    cd generating-by-prompt-sdxl-turbo
+    ~~~
+4. Create the environment:
+    ~~~
+    conda env create -f generating-by-prompt-sdxl-turbo.yaml
+    ~~~
+5. Activate the environment:
+    ~~~
+    conda activate generating-by-prompt-sdxl-turbo
+    ~~~
+
+### Using Pip 
 
 ## Generating Images
 
